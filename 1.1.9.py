@@ -31,7 +31,6 @@ bread.ht()
 sprinkle = trtl.Turtle()
 sprinkle.speed(0)
 sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
-sprinkle_shape = []
 sprinklex = 20
 sprinkley = 20
 direction = 90
@@ -42,7 +41,9 @@ for color in range(12):
     sprinkle.penup()
     sprinkle.goto(sprinklex, sprinkley)
     sprinkle.pendown()
+    sprinkle.begin_fill()
     sprinkle.circle(5)
+    sprinkle.end_fill()
     sprinklex = sprinkle.xcor() + 20
     sprinkley = sprinkle.ycor() + 20
     direction += 10
