@@ -1,38 +1,35 @@
 import turtle as trtl
 
-p = trtl.Turtle()
-p.speed(0)
+plate = trtl.Turtle()
+plate.speed(0)
+plate.pencolor("#c1cdcd")
+plate.fillcolor("#c1cdcd")
+plate.penup()
+plate.goto(0, -175)
+plate.pendown()
+plate.begin_fill()
+plate.circle(350, 360, 4)
+plate.end_fill()
+plate.ht()
 
-#draw plate
-p.pencolor("#c1cdcd")
-p.fillcolor("#c1cdcd")
-p.penup()
-p.goto(0, -175)
-p.pendown()
-p.begin_fill()
-p.circle(350, 360, 4)
-p.end_fill()
-p.ht()
+bread = trtl.Turtle()
+bread.speed(0)
+bread.pencolor("#964B00")
+bread.fillcolor("#964B00")
+bread.penup()
+bread.goto(0, -20)
+bread.pendown()
+bread.begin_fill()
+bread.circle(200)
+bread.penup()
+bread.goto(0, 125)
+bread.pendown()
+bread.circle(50)
+bread.end_fill()
+bread.ht()
 
-#draw bread
-b = trtl.Turtle()
-b.speed(0)
-b.pencolor("#964B00")
-b.fillcolor("#964B00")
-b.penup()
-b.goto(0, -20)
-b.pendown()
-b.begin_fill()
-b.circle(200)
-b.penup()
-b.goto(0, 125)
-b.pendown()
-b.circle(50)
-b.end_fill()
-b.ht()
-
-s = trtl.Turtle()
-s.speed(0)
+sprinkle = trtl.Turtle()
+sprinkle.speed(0)
 sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
 sprinkle_shape = []
 sprinklex = 20
@@ -40,16 +37,16 @@ sprinkley = 20
 direction = 90
 for color in range(6):
     new_color = sprinkle_color.pop()
-    s.pencolor(new_color)
-    s.fillcolor(new_color)
-    s.penup()
-    s.goto(sprinklex, sprinkley)
-    s.pendown()
-    s.circle(5)
-    sprinklex = s.xcor() + 20
-    sprinkley = s.ycor() + 20
+    sprinkle.pencolor(new_color)
+    sprinkle.fillcolor(new_color)
+    sprinkle.penup()
+    sprinkle.goto(sprinklex, sprinkley)
+    sprinkle.pendown()
+    sprinkle.circle(5)
+    sprinklex = sprinkle.xcor() + 20
+    sprinkley = sprinkle.ycor() + 20
     direction += 10
-s.ht()
+sprinkle.ht()
 
 wn = trtl.Screen()
 wn.mainloop()
