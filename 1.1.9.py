@@ -35,7 +35,7 @@ sprinkle_shape = []
 sprinklex = 20
 sprinkley = 20
 direction = 90
-for color in range(6):
+for color in range(12):
     new_color = sprinkle_color.pop()
     sprinkle.pencolor(new_color)
     sprinkle.fillcolor(new_color)
@@ -46,6 +46,8 @@ for color in range(6):
     sprinklex = sprinkle.xcor() + 20
     sprinkley = sprinkle.ycor() + 20
     direction += 10
+    if (len(sprinkle_color) == 0):
+        sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
 sprinkle.ht()
 
 wn = trtl.Screen()
