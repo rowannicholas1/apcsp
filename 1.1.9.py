@@ -3,6 +3,19 @@ import turtle as trtl
 # TODO: fix colors
 
 # TODO: make plate more detailed
+shadow = trtl.Turtle()
+shadow.speed(0)
+shadow.pencolor("#5A5A5A")
+shadow.fillcolor("#5A5A5A")
+shadow.penup()
+shadow.goto(0, -185)
+shadow.pendown()
+shadow.begin_fill()
+shadow.circle(350, 360, 4)
+shadow.end_fill()
+shadow.penup()
+shadow.ht()
+
 plate = trtl.Turtle()
 plate.speed(0)
 plate.pencolor("#c1cdcd")
@@ -17,8 +30,6 @@ plate.penup()
 plate.ht()
 
 # TODO: add shadows
-shadow = trtl.Turtle()
-shadow.speed(0)
 shadow.begin_fill()
 shadow.pencolor("#5A5A5A")
 shadow.fillcolor("#5A5A5A")
@@ -65,12 +76,20 @@ for bump in range(50):
 
 # TODO: add donut hole
 
+bread.penup()
+bread.goto(0, 125)
+bread.pendown()
+bread.begin_fill()
+bread.circle(60)
+bread.end_fill()
+bread.ht()
+
 plate.st()
 plate.begin_fill()
-plate.goto(0, 125)
+plate.goto(0, 130)
 plate.circle(50)
-plate.pencolor("#c1cdcd")
-plate.fillcolor("#c1cdcd")
+plate.pencolor("#5A5A5A")
+plate.fillcolor("#5A5A5A")
 plate.end_fill()
 plate.ht()
 
@@ -78,22 +97,27 @@ plate.ht()
 sprinkle = trtl.Turtle()
 sprinkle.speed(0)
 sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
-sprinklex = 20
-sprinkley = 20
 direction = 90
-for color in range(12):
+for color in range(34):
     new_color = sprinkle_color.pop()
     sprinkle.pencolor(new_color)
     sprinkle.fillcolor(new_color)
     sprinkle.penup()
-    sprinkle.goto(sprinklex, sprinkley)
+    sprinkle.goto(0, 190)
+    sprinklex = 0
+    sprinkley = 75
+    sprinkle.right(sprinklex + color*2.5) # TODO: make sprinkles appear to be more random. 
+    sprinkle.forward(sprinkley + color*2.5)
+    sprinklex = sprinkle.xcor()
+    sprinkley = sprinkle.ycor()
+    sprinkle.setheading(direction)
     sprinkle.pendown()
-    sprinkle.begin_fill()
-    sprinkle.circle(5)
-    sprinkle.end_fill()
-    sprinklex = sprinkle.xcor() + 20
-    sprinkley = sprinkle.ycor() + 20
-    direction += 10
+    for circle in range(6):
+        sprinkle.begin_fill()
+        sprinkle.circle(4)
+        sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
+        sprinkle.end_fill()
+    direction += 35
     if (len(sprinkle_color) == 0):
         sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
 sprinkle.ht()
