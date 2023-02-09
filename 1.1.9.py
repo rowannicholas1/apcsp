@@ -1,5 +1,6 @@
 import turtle as trtl
 
+# TODO: make plate more detailed
 plate = trtl.Turtle()
 plate.speed(0)
 plate.pencolor("#c1cdcd")
@@ -10,7 +11,10 @@ plate.pendown()
 plate.begin_fill()
 plate.circle(350, 360, 4)
 plate.end_fill()
+plate.penup()
 plate.ht()
+
+# TODO: add shadows
 
 bread = trtl.Turtle()
 bread.speed(0)
@@ -21,13 +25,43 @@ bread.goto(0, -20)
 bread.pendown()
 bread.begin_fill()
 bread.circle(200)
-bread.penup()
-bread.goto(0, 125)
-bread.pendown()
-bread.circle(50)
 bread.end_fill()
 bread.ht()
 
+icing = trtl.Turtle()
+icing.speed(0)
+icing.penup()
+icing.begin_fill()
+icing.goto(0,15)
+icing.circle(165)
+icing.pencolor("#EE82EE")
+icing.fillcolor("#EE82EE")
+icing.end_fill()
+icing.penup()
+icing_bump_size = [14, 16, 14, 18, 24, 30, 14, 14]
+for bump in range(50):
+    icing.begin_fill()
+    icing.goto(0, 185)
+    icing.pendown()
+    icing.right(380)
+    icing.forward(158)
+    icing.circle(icing_bump_size.pop())
+    icing.end_fill()
+    if (len(icing_bump_size) == 0):
+        icing_bump_size = [12, 16, 18, 24, 30]
+
+# TODO: add donut hole
+
+plate.st()
+plate.begin_fill()
+plate.goto(0, 125)
+plate.circle(50)
+plate.pencolor("#c1cdcd")
+plate.fillcolor("#c1cdcd")
+plate.end_fill()
+plate.ht()
+
+# TODO: fix sprinkles
 sprinkle = trtl.Turtle()
 sprinkle.speed(0)
 sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
