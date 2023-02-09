@@ -96,7 +96,7 @@ plate.ht()
 # TODO: fix sprinkles
 sprinkle = trtl.Turtle()
 sprinkle.speed(0)
-sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
+sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
 direction = 90
 for color in range(34):
     new_color = sprinkle_color.pop()
@@ -119,7 +119,7 @@ for color in range(34):
         sprinkle.end_fill()
     direction += 35
     if (len(sprinkle_color) == 0):
-        sprinkle_color = ["red", "yellow", "blue", "green", "purple", "white"]
+        sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
 sprinkle.ht()
 
 wn = trtl.Screen()
