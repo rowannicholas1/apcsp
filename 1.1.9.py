@@ -1,5 +1,7 @@
 import turtle as trtl
- 
+wn = trtl.Screen()
+
+#wn.setup(900, 1100, 0, 0)
 print("hi! welcome in to Zyack's Donuts! please be specific when you tell me what you want. i'm hard of hearing.")
 
 # TODO: fix colors
@@ -131,14 +133,14 @@ else:
     print("huh!? i can't hear ya! here have some sprinkles")
     sprinkle_colororchocolate = "rainbow"
 if sprinkle_colororchocolate == "rainbow":
-    sprinkle_color = ["#EE82EE", "red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
+    sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
     print("rainbow sprinkles it it!")
 elif sprinkle_colororchocolate == "chocolate":
     sprinkle_color = ["#210E00"]
     print("chocolate sprinkles it is!")
 else:
     print("huh!? i can't hear ya! here have some sprinkles")
-    sprinkle_color = ["#EE82EE", "red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
+    sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
 direction = 90
 print("sprinkling...")
 for color in range(34):
