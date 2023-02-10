@@ -83,7 +83,7 @@ icing.circle(162)
 icing.end_fill()
 icing.penup()
 icing_bump_size = [14, 16, 14, 18, 24, 30, 14, 14]
-for bump in range(50):
+for bump in range(30):
     icing.begin_fill()
     icing.goto(0, 180)
     icing.pendown()
@@ -145,11 +145,14 @@ for color in range(34):
     sprinkley = sprinkle.ycor()
     sprinkle.setheading(direction)
     sprinkle.pendown()
-    for circle in range(6):
-        sprinkle.begin_fill()
-        sprinkle.circle(4)
-        sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
-        sprinkle.end_fill()
+    sprinkle.begin_fill()
+    sprinkle.circle(4) # TODO: change sprinkle shape
+    sprinkle.end_fill()
+    #for circle in range(6):
+        #sprinkle.begin_fill()
+        #sprinkle.circle(4)
+        #sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
+        #sprinkle.end_fill()
     direction += 35
     if sprinkle_colororchocolate == "rainbow":
         if (len(sprinkle_color) == 0):
