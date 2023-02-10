@@ -1,14 +1,15 @@
 import turtle as trtl
-
-print("hi! welcome in to Zyack's Donuts!")
+import random
+ 
+print("hi! welcome in to Zyack's Donuts! please be specific when you tell me what you want. i'm hard of hearing.")
 
 # TODO: fix colors
 
 # TODO: make plate more detailed
 shadow = trtl.Turtle()
 shadow.speed(0)
-shadow.pencolor("#5A5A5A")
-shadow.fillcolor("#5A5A5A")
+shadow.pencolor("#5F6565")
+shadow.fillcolor("#5F6565")
 shadow.penup()
 shadow.goto(0, -185)
 shadow.pendown()
@@ -32,9 +33,6 @@ plate.penup()
 plate.ht()
 
 shadow.begin_fill()
-shadow.pencolor("#5A5A5A")
-shadow.fillcolor("#5A5A5A")
-shadow.penup()
 shadow.goto(0, -40)
 shadow.pendown()
 shadow.circle(200)
@@ -46,11 +44,11 @@ bread = trtl.Turtle()
 bread.speed(0)
 bread_color = input("do you want a cake or whole wheat donut?")
 if (bread_color == "cake"):
-    bread.pencolor("#964B00")
-    bread.fillcolor("#964B00")
+    bread.pencolor("#F2AC45")
+    bread.fillcolor("#F2AC45")
 elif (bread_color == "whole wheat"):
-    bread.pencolor("#964B00") # TODO: change color
-    bread.fillcolor("#964B00")
+    bread.pencolor("#9A702B") # TODO: change color
+    bread.fillcolor("#9A702B")
 else:
     print("you think you can be smart with me? get lost chump. we sell cake or whole wheat. come back later after you've cooled down.")
     exit()
@@ -65,15 +63,15 @@ bread.ht()
 icing = trtl.Turtle()
 icing.speed(0)
 icing_color = input("do you want a chocolate, vanilla, or pink donut?")
-if (icing_color == "pink"):
+if icing_color == "pink":
     icing.pencolor("#EE82EE")
     icing.fillcolor("#EE82EE")
-elif (icing_color == "chocolate"):
-    icing.pencolor("#EE82EE") # TODO: change color
-    icing.fillcolor("#EE82EE")
-elif (icing_color == "vanilla"):
-    icing.pencolor("#EE82EE") # TODO: change color
-    icing.fillcolor("#EE82EE")
+elif icing_color == "chocolate":
+    icing.pencolor("#4C2100") # TODO: change color
+    icing.fillcolor("#4C2100")
+elif icing_color == "vanilla":
+    icing.pencolor("#F7EDE6") # TODO: change color
+    icing.fillcolor("#F7EDE6")
 else:
     print("that isn't an option. you're gonna get pink.")
     icing.pencolor("#EE82EE") 
@@ -118,17 +116,17 @@ sprinkle = trtl.Turtle()
 sprinkle.speed(0)
 sprinkle_yes = input("do you want sprinkles?")
 if sprinkle_yes == "yes":
-    sprinkle_colororchocolate = input("Chocolate or rainbow?")
+    sprinkle_colororchocolate = input("chocolate or rainbow?")
 elif sprinkle_yes == "no":
     print("thanks for coming in!")
     exit()
 else:
     print("huh!? i can't hear ya! here have some sprinkles")
-    sprinkle_colororchocolate = "color"
-if sprinkle_colororchocolate == "color":
+    sprinkle_colororchocolate = "rainbow"
+if sprinkle_colororchocolate == "rainbow":
     sprinkle_color = ["#EE82EE", "red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
 elif sprinkle_colororchocolate == "chocolate":
-    sprinkle_color = ["brown"]
+    sprinkle_color = ["#210E00"]
 else:
     print("huh!? i can't hear ya! here have some sprinkles")
     sprinkle_color = ["#EE82EE", "red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
@@ -153,12 +151,12 @@ for color in range(34):
         sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
         sprinkle.end_fill()
     direction += 35
-    if sprinkle_colororchocolate == "color":
+    if sprinkle_colororchocolate == "rainbow":
         if (len(sprinkle_color) == 0):
             sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
     elif sprinkle_colororchocolate == "chocolate":
         if (len(sprinkle_color) == 0):
-            sprinkle_color = ["brown"]
+            sprinkle_color = ["#210E00"]
 sprinkle.ht()
 
 print("bon appetit!")
