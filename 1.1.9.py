@@ -38,6 +38,7 @@ shadow.goto(0, -40)
 shadow.pendown()
 shadow.circle(200)
 shadow.end_fill()
+shadow.penup()
 shadow.ht()
 
 bread = trtl.Turtle()
@@ -84,19 +85,17 @@ bread.circle(60)
 bread.end_fill()
 bread.ht()
 
-plate.st()
-plate.begin_fill()
-plate.goto(0, 130)
-plate.circle(50)
-plate.pencolor("#5A5A5A")
-plate.fillcolor("#5A5A5A")
-plate.end_fill()
-plate.ht()
+shadow.st()
+shadow.begin_fill()
+shadow.goto(0, 130)
+shadow.circle(50)
+shadow.end_fill()
+shadow.ht()
 
 # TODO: fix sprinkles
 sprinkle = trtl.Turtle()
 sprinkle.speed(0)
-sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
+sprinkle_color = ["#EE82EE", "red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
 direction = 90
 for color in range(34):
     new_color = sprinkle_color.pop()
@@ -112,11 +111,14 @@ for color in range(34):
     sprinkley = sprinkle.ycor()
     sprinkle.setheading(direction)
     sprinkle.pendown()
-    for circle in range(6):
-        sprinkle.begin_fill()
-        sprinkle.circle(4)
-        sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
-        sprinkle.end_fill()
+    if (new_color == "#EE82EE"):
+        sprinkle.circle(1)
+    else:
+        for circle in range(6):
+            sprinkle.begin_fill()
+            sprinkle.circle(4)
+            sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
+            sprinkle.end_fill()
     direction += 35
     if (len(sprinkle_color) == 0):
         sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
