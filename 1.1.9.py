@@ -40,7 +40,7 @@ if (bread_color == "cake"):
     bread.pencolor("#F2AC45")
     bread.fillcolor("#F2AC45")
 elif (bread_color == "whole wheat"):
-    bread.pencolor("#9A702B") # TODO: change color
+    bread.pencolor("#9A702B") 
     bread.fillcolor("#9A702B")
 else:
     print("you think you can be smart with me? get lost chump. we sell cake or whole wheat. come back later after you've cooled down.")
@@ -125,10 +125,10 @@ sprinkle_yes = input("do you want sprinkles?")
 if sprinkle_yes == "yes":
     sprinkle_colororchocolate = input("chocolate or rainbow?")
 elif sprinkle_yes == "no":
+    sprinkle.ht()
     print("enjoy the donut and thanks for coming in!")
     wn = trtl.Screen()
     wn.mainloop()
-    exit()
 else:
     print("huh!? i can't hear ya! here have some sprinkles")
     sprinkle_colororchocolate = "rainbow"
@@ -178,4 +178,3 @@ print("bon appetit!")
 
 wn = trtl.Screen()
 wn.mainloop()
-exit()
