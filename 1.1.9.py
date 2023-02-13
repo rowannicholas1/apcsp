@@ -143,7 +143,7 @@ else:
     sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
 direction = 90
 print("sprinkling...")
-for color in range(34):
+for color in range(60):
     new_color = sprinkle_color.pop()
     sprinkle.pencolor(new_color)
     sprinkle.fillcolor(new_color)
@@ -151,21 +151,22 @@ for color in range(34):
     sprinkle.goto(0, 190)
     sprinklex = 0
     sprinkley = 75
-    sprinkle.right(sprinklex + color*2.5) # TODO: make sprinkles appear to be more random. 
-    sprinkle.forward(sprinkley + color*2.5)
+    sprinkle.right(sprinklex + color*1.5) # TODO: make sprinkles appear to be more random. 
+    sprinkle.forward(sprinkley + color*1.5)
     sprinklex = sprinkle.xcor()
     sprinkley = sprinkle.ycor()
     sprinkle.setheading(direction)
     sprinkle.pendown()
     sprinkle.begin_fill()
-    sprinkle.circle(4) # TODO: change sprinkle shape
+    sprinkle.right(90)
+    #sprinkle.circle(4) # TODO: change sprinkle shape
+    for circle in range(2):
+        sprinkle.forward(4)
+        sprinkle.left(90)
+        sprinkle.forward(8)
+        sprinkle.left(90)
     sprinkle.end_fill()
-    #for circle in range(6):
-        #sprinkle.begin_fill()
-        #sprinkle.circle(4)
-        #sprinkle.goto(sprinklex, sprinkley - 3) # TODO: make sprinkles go in direction using set heading and forward instead of goto
-        #sprinkle.end_fill()
-    direction += 35
+    direction += 65
     if sprinkle_colororchocolate == "rainbow":
         if (len(sprinkle_color) == 0):
             sprinkle_color = ["red", "yellow", "#EE82EE", "blue", "green", "purple", "white"]
