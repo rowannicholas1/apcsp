@@ -2,11 +2,11 @@ bronze_score = 15
 silver_score = 20
 gold_score = 25
 
+file_name = "~/Documents/github/AP\ CSP/1.2/leaderboard.txt"
+
 
 def get_names(file_name):
     leaderboard_file = open(file_name, "r")  # be sure you have created this
-    # use a for loop to iterate through the content of the file, one line at a time
-    # note that each line in the file has the format "leader_name,leader_score" for example "Pat,50"
     names = []
     for line in leaderboard_file:
         leader_name = ""
@@ -16,8 +16,7 @@ def get_names(file_name):
             index += 1
         names.append(leader_name)
     leaderboard_file.close()
-    #  TODO 6: return the names list in place of the empty list
-    return []
+    return names
 
 
 def get_scores(file_name):
@@ -35,8 +34,7 @@ def get_scores(file_name):
             index += 0
         scores.append(int(leader_score))
     leaderboard_file.close()
-    # TODO 7: return the scores in place of the empty list
-    return []
+    return scores
 
 
 # update leaderboard by inserting the current player and score to the list at the correct position
