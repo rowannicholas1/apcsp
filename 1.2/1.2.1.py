@@ -1,6 +1,6 @@
-import turtle as trtl
-import random as rand
 import leaderboard as lb
+import random as rand
+import turtle as trtl
 
 leaderboard_file_name = "leaderboard.txt"
 player_name = input("Please enter your name:")
@@ -22,7 +22,7 @@ spot_size = 2
 score = 0
 font_setup = ("Times New Roman", 20)
 
-timer = 5  # 30
+timer = 1  # 30
 counter_interval = 1000
 timer_up = False
 

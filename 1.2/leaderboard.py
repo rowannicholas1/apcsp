@@ -1,14 +1,6 @@
-# leaderboard.py
-# The leaderboard module to be used in Activity 1.2.2
-
-# set the levels of scoring
 bronze_score = 15
 silver_score = 20
 gold_score = 25
-
-# return names in the leaderboard file
-
-file_name = "leaderboard.txt"
 
 
 def get_names(file_name):
