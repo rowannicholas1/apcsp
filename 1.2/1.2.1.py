@@ -5,6 +5,10 @@ import leaderboard as lb
 leaderboard_file_name = "a122_leaderboard.txt"
 player_name = input("Please enter your name:")
 
+bronze_score = 15
+silver_score = 20
+gold_score = 25
+
 spot = trtl.Turtle()
 score_writer = trtl.Turtle()
 counter = trtl.Turtle()
