@@ -2,7 +2,7 @@ import turtle as trtl
 import random as rand
 import leaderboard as lb
 
-leaderboard_file_name = "a122_leaderboard.txt"
+leaderboard_file_name = "leaderboard.txt"
 player_name = input("Please enter your name:")
 
 bronze_score = 15

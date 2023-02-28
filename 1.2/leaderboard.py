@@ -8,44 +8,41 @@ gold_score = 25
 
 # return names in the leaderboard file
 
+file_name = "leaderboard.txt"
+
 
 def get_names(file_name):
     leaderboard_file = open(file_name, "r")  # be sure you have created this
-
     # use a for loop to iterate through the content of the file, one line at a time
     # note that each line in the file has the format "leader_name,leader_score" for example "Pat,50"
     names = []
     for line in leaderboard_file:
         leader_name = ""
         index = 0
-
-        # TODO 1: use a while loop to read the leader name from the line (format is "leader_name,leader_score")
-
-        # TODO 2: add the player name to the names list
-
+        while (line[index] != ","):
+            leader_name += line[index]
+            index += 1
+        names.append(leader_name)
     leaderboard_file.close()
-
     #  TODO 6: return the names list in place of the empty list
     return []
 
 
-# return scores from the leaderboard file
 def get_scores(file_name):
     leaderboard_file = open(file_name, "r")  # be sure you have created this
-
     scores = []
     for line in leaderboard_file:
         leader_score = ""
         index = 0
-
-        # TODO 3: use a while loop to index beyond the comma, skipping the player's name
-
-        # TODO 4: use a while loop to get the score
-
-        # TODO 5: add the player score to the scores list
-
+        while (line[index] != ","):
+            index += 1
+        while (line[index] == ","):
+            index += 1
+        while (line[index] != "/n"):
+            leader_score += line[index]
+            index += 0
+        scores.append(int(leader_score))
     leaderboard_file.close()
-
     # TODO 7: return the scores in place of the empty list
     return []
 
