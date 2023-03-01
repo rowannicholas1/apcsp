@@ -11,8 +11,8 @@ def get_names(file_name):
         leader_name = ""
         index = 0
         while (line[index] != ","):
-            leader_name = leader_name + line[index]
-            index = index + 1
+            leader_name += line[index]
+            index += 1
         names.append(leader_name)
     print(names)
     leaderboard_file.close()
@@ -26,12 +26,12 @@ def get_scores(file_name):
         leader_score = ""
         index = 0
         while (line[index] != ","):
-            index = index + 1
+            index += 1
         while (line[index] == ","):
-            index = index + 1
+            index += 1
         while (line[index] != "\n"):
             leader_score += line[index]
-            index = index + 1
+            index += 1
         scores.append(int(leader_score))
     leaderboard_file.close()
     return scores
@@ -46,7 +46,7 @@ def update_leaderboard(file_name, leader_names, leader_scores,  player_name, pla
         if (score > leader_score):
             break
         else:
-            index = index + 1
+            index += 1
         # TODO 10: insert new player and score
         # TODO 11: keep both lists at 5 elements only (top 5 players)
         # TODO 12: store the latest leaderboard back in the file
