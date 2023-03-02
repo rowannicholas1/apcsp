@@ -6,13 +6,12 @@ color1 = ("green")
 size1 = 2
 shape1 = ("circle")
 score = 0
-timer = 5
-counter_interval = 1000  # 1000 represents 1 second
+timer = 30
+counter_interval = 1000
 timer_up = False
 leaderboard_file_name = "leaderboard.txt"
 player_name = input("Please enter your name:")
 
-wn = trtl.Screen()
 counter = trtl.Turtle()
 counter.ht()
 counter.penup()
@@ -32,8 +31,8 @@ def countdown():
     global timer, timer_up
     counter.clear()
     if timer <= 0:
-        counter.goto(-65, 0)
-        counter.write("Time's Up", font=('Consolas', 30, 'normal'))
+        counter.goto(110, 175)
+        counter.write("Time's Up", font=('Consolas', 12, 'normal'))
         timer_up = True
         manage_leaderboard()
     else:
@@ -82,5 +81,7 @@ def manage_leaderboard():
 
 
 spot.onclick(spot_clicked)
+
+wn = trtl.Screen()
 wn.ontimer(countdown, counter_interval)
 wn.mainloop()
