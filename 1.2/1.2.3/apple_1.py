@@ -2,13 +2,12 @@
 import turtle as trtl
 import random as rand
 
-APPLE_IMAGE = "~/Documents/github/apcsp/1.2/1.2.3/apple.gif"
+appleImage = "~/Documents/github/apcsp/1.2/1.2.3/apple.gif"
 
 apple = trtl.Turtle()
 apple.penup()
 apple.speed(9)
 apple.right(90)
-
 
 drawer = trtl.Turtle()
 drawer.speed(0)
@@ -18,36 +17,30 @@ drawer.penup()
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
 wn.bgpic("~/Documents/github/apcsp/1.2/1.2.3/background.gif")
-wn.addshape(APPLE_IMAGE)
+wn.addshape(appleImage)
 wn.listen()
 wn.update()
 
-index = rand.randint(0, 3)
-letters = ["a", "s", "d", "f"]
+index = rand.randint(0, 8)
+letters = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]
 
 
-def letter():
+def drawApple(activeApple):
+    global apple
     global drawer
-    global apple
     global index
-    drawer.color("Black")
-    drawer.goto(apple.xcor() - 8, apple.ycor() - 20)
-    drawer.write(letters[index], font=("Arial", 74, "bold"))
-    letters.pop(index)
-
-
-def draw_apple(active_apple):
-    global apple
     global wn
     wn.tracer(False)
-    active_apple.shape(APPLE_IMAGE)
+    activeApple.shape(appleImage)
     apple.goto(rand.randint(-250, 250), 175)
-    letter()
+    drawer.color("Black")
+    drawer.goto(apple.xcor() - 10, apple.ycor() - 34)
+    drawer.write(letters[index], font=("Times New Roman", 60, "bold"))
     wn.tracer(True)
     wn.update()
 
 
-def fall_apple():
+def fallApple():
     global apple
     global drawer
     drawer.clear()
@@ -55,7 +48,7 @@ def fall_apple():
     wn.update()
 
 
-draw_apple(apple)
-wn.onkeypress(fall_apple, letters[index])
+drawApple(apple)
+wn.onkeypress(fallApple, letters[index])
 
 wn.mainloop()
