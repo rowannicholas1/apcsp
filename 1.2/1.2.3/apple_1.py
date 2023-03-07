@@ -68,44 +68,44 @@ drawer.goto(-12, -2)
 drawer.ht()
 
 
+def checkApples():
+    if len(goodJob) > 4:
+        drawer.write("good job.", font=("Times New Roman", 60, "bold"))
+
+
 def appleA():
     if "a" in appleLetters:
         fallApple("a")
         goodJob.append("a")
-        if len(goodJob) > 4:
-            drawer.write("good job.", font=("Times New Roman", 60, "bold"))
+        checkApples()
 
 
 def appleS():
     if "s" in appleLetters:
         fallApple("s")
         goodJob.append("s")
-        if len(goodJob) > 4:
-            drawer.write("good job.", font=("Times New Roman", 60, "bold"))
+        checkApples()
 
 
 def appleD():
     if "d" in appleLetters:
         fallApple("d")
         goodJob.append("d")
-        if len(goodJob) > 4:
-            drawer.write("good job.", font=("Times New Roman", 60, "bold"))
+        checkApples()
 
 
 def appleF():
     if "f" in appleLetters:
         fallApple("f")
         goodJob.append("f")
-        if len(goodJob) > 4:
-            drawer.write("good job.", font=("Times New Roman", 60, "bold"))
+        checkApples()
 
 
 def appleG():
     if "g" in appleLetters:
         fallApple("g")
         goodJob.append("g")
-        if len(goodJob) > 4:
-            drawer.write("good job.", font=("Times New Roman", 60, "bold"))
+        checkApples()
 
 
 for i in range(0, 5):
