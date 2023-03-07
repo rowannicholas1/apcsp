@@ -1,62 +1,62 @@
-# `a123_apple_1.py
+# a123_apple_1.py
 import turtle as trtl
 import random as rand
 
-appleImage = "~/Documents/github/apcsp/1.2/1.2.3/apple.gif"
+APPLE_IMAGE = "~/Documents/github/apcsp/1.2/1.2.3/apple.gif"
 
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
 wn.bgpic("~/Documents/github/apcsp/1.2/1.2.3/background.gif")
-wn.addshape(appleImage)
+wn.addshape(APPLE_IMAGE)
 wn.update()
 wn.tracer(False)
-ground = -203
+GROUND = -203
 
 index = rand.randint(0, 8)
 letters = ["a", "s", "d", "f", "g"]
 appleLetters = []
 appleList = []
-currentLetter = ","
+CURRENT_LETTER = ","
 
 
-def drawLetter(activeApple, letter):
+def draw_letter(activeApple, letter):
     wn.tracer(False)
     activeApple.color("white")
-    letterPosition = activeApple.position()
+    letter_position = activeApple.position()
     activeApple.setpos(activeApple.xcor() - 10, activeApple.ycor() - 34)
     activeApple.write(letter, font=("Times New Roman", 60, "bold"))
-    activeApple.setpos(letterPosition)
+    activeApple.setpos(letter_position)
 
 
-def drawApple(activeApple, letter):
+def draw_apple(activeApple, letter):
     wn.tracer(False)
-    activeApple.shape(appleImage)
-    drawLetter(activeApple, letter)
+    activeApple.shape(APPLE_IMAGE)
+    draw_letter(activeApple, letter)
     wn.update()
 
 
-def resetApple(activeApple):
-    global currentLetter
-    listLength = len(letters)
-    if listLength != 0:
-        index = rand.randint(0, listLength-1)
+def reset_apple(activeApple):
+    global CURRENT_LETTER
+    list_length = len(letters)
+    if list_length != 0:
+        index = rand.randint(0, list_length-1)
         activeApple.goto(rand.randint(-150, 150), rand.randint(100, 150))
-        currentLetter = letters.pop(index)
-        drawApple(activeApple, currentLetter)
-        appleLetters.append(currentLetter)
+        CURRENT_LETTER = letters.pop(index)
+        draw_apple(activeApple, CURRENT_LETTER)
+        appleLetters.append(CURRENT_LETTER)
 
 
-def fallApple(letter):
+def fall_apple(letter):
     wn.tracer(True)
     index = appleLetters.index(letter)
     appleLetters.pop(index)
-    activeApple = appleList.pop(index)
-    activeApple.speed(6)
-    activeApple.clear()
-    activeApple.goto(activeApple.xcor(), ground)
-    activeApple.ht()
+    active_apple = appleList.pop(index)
+    active_apple.speed(6)
+    active_apple.clear()
+    active_apple.goto(active_apple.xcor(), GROUND)
+    active_apple.ht()
     wn.tracer(False)
-    resetApple(activeApple)
+    reset_apple(active_apple)
     wn.update()
 
 
@@ -68,58 +68,58 @@ drawer.goto(-12, -2)
 drawer.ht()
 
 
-def checkApples():
+def check_apples():
     if len(goodJob) > 4:
         drawer.write("good job.", font=("Times New Roman", 60, "bold"))
 
 
-def appleA():
+def apple_a():
     if "a" in appleLetters:
-        fallApple("a")
+        fall_apple("a")
         goodJob.append("a")
-        checkApples()
+        check_apples()
 
 
-def appleS():
+def apple_s():
     if "s" in appleLetters:
-        fallApple("s")
+        fall_apple("s")
         goodJob.append("s")
-        checkApples()
+        check_apples()
 
 
-def appleD():
+def apple_d():
     if "d" in appleLetters:
-        fallApple("d")
+        fall_apple("d")
         goodJob.append("d")
-        checkApples()
+        check_apples()
 
 
-def appleF():
+def apple_f():
     if "f" in appleLetters:
-        fallApple("f")
+        fall_apple("f")
         goodJob.append("f")
-        checkApples()
+        check_apples()
 
 
-def appleG():
+def apple_g():
     if "g" in appleLetters:
-        fallApple("g")
+        fall_apple("g")
         goodJob.append("g")
-        checkApples()
+        check_apples()
 
 
 for i in range(0, 5):
-    activeApple = trtl.Turtle(shape=appleImage)
+    activeApple = trtl.Turtle(shape=APPLE_IMAGE)
     activeApple.penup()
-    resetApple(activeApple)
+    reset_apple(activeApple)
     appleList.append(activeApple)
 
 
-wn.onkeypress(appleA, "a")
-wn.onkeypress(appleS, "s")
-wn.onkeypress(appleD, "d")
-wn.onkeypress(appleF, "f")
-wn.onkeypress(appleG, "g")
+wn.onkeypress(apple_a, "a")
+wn.onkeypress(apple_s, "s")
+wn.onkeypress(apple_d, "d")
+wn.onkeypress(apple_f, "f")
+wn.onkeypress(apple_g, "g")
 
 
 wn.listen()
