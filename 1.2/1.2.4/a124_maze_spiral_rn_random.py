@@ -21,16 +21,14 @@ def maze_forward():
 
 
 def maze_door():
-    maze_painter.forward(rand.randint(
-        PATH_WIDTH, (DISTANCE - PATH_WIDTH/2)))
+    maze_painter.forward(rand.randint(20, 80))
     maze_painter.penup()
     maze_painter.forward(PATH_WIDTH*2)
     maze_painter.pendown()
 
 
 def maze_barrier():
-    maze_painter.forward(rand.randint(
-        PATH_WIDTH, (DISTANCE - PATH_WIDTH/2)))
+    maze_painter.forward(rand.randint(20, 80))
     maze_painter.right(90)
     maze_painter.forward(PATH_WIDTH*2)
     maze_painter.back(PATH_WIDTH*2)
@@ -39,9 +37,9 @@ def maze_barrier():
 
 
 for wall in range(30):
-    if wall < 2:
+    if wall <= 2:
         maze_forward()
-    elif wall > 26:
+    elif wall >= 26:
         maze_forward()
     else:
         maze_forward()
