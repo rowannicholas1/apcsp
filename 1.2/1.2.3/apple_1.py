@@ -12,10 +12,9 @@ wn.update()
 wn.tracer(False)
 GROUND = -203
 
-index = rand.randint(0, 8)
 letters = ["a", "s", "d", "f", "g"]
-appleLetters = []
-appleList = []
+apple_letters = []
+apple_list = []
 CURRENT_LETTER = ","
 
 
@@ -43,14 +42,14 @@ def reset_apple(activeApple):
         activeApple.goto(rand.randint(-150, 150), rand.randint(100, 150))
         CURRENT_LETTER = letters.pop(index)
         draw_apple(activeApple, CURRENT_LETTER)
-        appleLetters.append(CURRENT_LETTER)
+        apple_letters.append(CURRENT_LETTER)
 
 
 def fall_apple(letter):
     wn.tracer(True)
-    index = appleLetters.index(letter)
-    appleLetters.pop(index)
-    active_apple = appleList.pop(index)
+    index = apple_letters.index(letter)
+    apple_letters.pop(index)
+    active_apple = apple_list.pop(index)
     active_apple.speed(6)
     active_apple.clear()
     active_apple.goto(active_apple.xcor(), GROUND)
@@ -74,35 +73,35 @@ def check_apples():
 
 
 def apple_a():
-    if "a" in appleLetters:
+    if "a" in apple_letters:
         fall_apple("a")
         goodJob.append("a")
         check_apples()
 
 
 def apple_s():
-    if "s" in appleLetters:
+    if "s" in apple_letters:
         fall_apple("s")
         goodJob.append("s")
         check_apples()
 
 
 def apple_d():
-    if "d" in appleLetters:
+    if "d" in apple_letters:
         fall_apple("d")
         goodJob.append("d")
         check_apples()
 
 
 def apple_f():
-    if "f" in appleLetters:
+    if "f" in apple_letters:
         fall_apple("f")
         goodJob.append("f")
         check_apples()
 
 
 def apple_g():
-    if "g" in appleLetters:
+    if "g" in apple_letters:
         fall_apple("g")
         goodJob.append("g")
         check_apples()
@@ -112,7 +111,7 @@ for i in range(0, 5):
     activeApple = trtl.Turtle(shape=APPLE_IMAGE)
     activeApple.penup()
     reset_apple(activeApple)
-    appleList.append(activeApple)
+    apple_list.append(activeApple)
 
 
 wn.onkeypress(apple_a, "a")
