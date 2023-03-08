@@ -1,4 +1,4 @@
-# a124_maze_spiral_rn_random.py
+# a124_maze_spiral_rn.py
 import turtle as trtl
 import random as rand
 
@@ -20,10 +20,22 @@ def maze_forward():
     maze_painter.forward(DISTANCE)
 
 
-door = rand.randint(PATH_WIDTH, (DISTANCE - PATH_WIDTH/2) + 5)
+def maze_door():
+    maze_painter.forward(rand.randint(
+        PATH_WIDTH, (DISTANCE - PATH_WIDTH/2)))
+    maze_painter.penup()
+    maze_painter.forward(PATH_WIDTH*2)
+    maze_painter.pendown()
 
 
-barrier = rand.randint(PATH_WIDTH, (DISTANCE - PATH_WIDTH/2) + 5)
+def maze_barrier():
+    maze_painter.forward(rand.randint(
+        PATH_WIDTH, (DISTANCE - PATH_WIDTH/2)))
+    maze_painter.right(90)
+    maze_painter.forward(PATH_WIDTH*2)
+    maze_painter.back(PATH_WIDTH*2)
+    maze_painter.left(90)
+    # maze_painter.forward(20)
 
 
 for wall in range(30):
@@ -33,8 +45,8 @@ for wall in range(30):
         maze_forward()
     else:
         maze_forward()
-        door
-        barrier
+        maze_door()
+        maze_barrier()
     DISTANCE += 20
 
 wn.listen()
