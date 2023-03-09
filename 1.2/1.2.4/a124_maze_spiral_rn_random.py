@@ -31,7 +31,7 @@ def maze_forward_rand():
 
 
 def maze_door():
-    '''creates whole in the walls'''
+    '''creates hole in the walls'''
     maze_painter.forward(20)
     maze_painter.penup()
     maze_painter.forward(PATH_WIDTH*2)
