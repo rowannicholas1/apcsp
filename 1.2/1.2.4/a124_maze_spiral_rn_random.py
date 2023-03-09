@@ -13,6 +13,9 @@ maze_painter.goto(0, 0)
 
 DISTANCE = 30
 PATH_WIDTH = 20
+WALL_AMOUNT = 40
+
+maze_runner = trtl.Turtle()
 
 
 def maze_forward():
@@ -51,14 +54,38 @@ def maze_barrier_outside():
     maze_painter.forward((DISTANCE - rand_distance)/2)
 
 
-for wall in range(40):
+maze_runner.penup()
+maze_runner.goto(0, -450)
+maze_runner.speed(8)
+
+
+def up():
+    maze_runner.setheading(90)
+    maze_runner.forward(10)
+
+
+def right():
+    maze_runner.setheading(0)
+    maze_runner.forward(10)
+
+
+def down():
+    maze_runner.setheading(270)
+    maze_runner.forward(10)
+
+
+def left():
+    maze_runner.setheading(180)
+    maze_runner.forward(10)
+
+
+for wall in range(WALL_AMOUNT):
     rand_distance = rand.randint(0, DISTANCE)
     if wall <= 4:
         maze_forward()
         maze_forward()
-    elif wall >= 36:  # doesn't work as intended
-        maze_forward()
-        maze_barrier_outside()
+    elif wall == WALL_AMOUNT:
+        maze_painter.penup()
     else:
         door_or_barrier = rand.randint(0, 1)
         if door_or_barrier == 0:
@@ -70,6 +97,12 @@ for wall in range(40):
             maze_door()
             maze_barrier()
     DISTANCE += 20
+
+wn.tracer(True)
+wn.onkeypress(up, "w")
+wn.onkeypress(right, "d")
+wn.onkeypress(down, "s")
+wn.onkeypress(left, "a")
 
 wn.listen()
 wn.mainloop()
