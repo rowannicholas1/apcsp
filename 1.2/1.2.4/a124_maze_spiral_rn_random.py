@@ -51,7 +51,7 @@ def maze_barrier():
 
 maze_runner.penup()
 maze_runner.goto(0, -450)
-maze_runner.speed(8)
+maze_runner.speed(10)
 
 
 def runner_up():
