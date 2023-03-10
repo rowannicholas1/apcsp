@@ -8,7 +8,7 @@ wn.tracer(False)
 maze_painter = trtl.Turtle()
 maze_painter.speed(0)
 maze_painter.ht()
-maze_painter.pensize(5)
+maze_painter.pensize(6)
 maze_painter.goto(0, 0)
 
 DISTANCE = 30
@@ -57,25 +57,25 @@ maze_runner.speed(8)
 def runner_up():
     '''moves runner up'''
     maze_runner.setheading(90)
-    maze_runner.forward(10)
+    maze_runner.forward(5)
 
 
 def runner_right():
     '''moves runner right'''
     maze_runner.setheading(0)
-    maze_runner.forward(10)
+    maze_runner.forward(5)
 
 
 def runner_down():
     '''moves runner down'''
     maze_runner.setheading(270)
-    maze_runner.forward(10)
+    maze_runner.forward(5)
 
 
 def runner_left():
     '''moves runner left'''
     maze_runner.setheading(180)
-    maze_runner.forward(10)
+    maze_runner.forward(5)
 
 
 for wall in range(WALL_AMOUNT):
@@ -98,6 +98,7 @@ for wall in range(WALL_AMOUNT):
     DISTANCE += 20
 
 wn.tracer(True)
+
 wn.onkeypress(runner_up, "w")
 wn.onkeypress(runner_right, "d")
 wn.onkeypress(runner_down, "s")
